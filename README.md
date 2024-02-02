@@ -32,14 +32,19 @@ The following datasets are available
 
 - `gunw48-yyyy-mm`: ARIA Sentinel-1 Geocoded Unwrapped Interferograms on year yyyy and month mm selecting all interferometric pairs at most 48 apart.
 
-- `gssic`:
+**Global Seasonal Sentinel-1 Interferometric Coherence and Backscatter Dataset**
+
+- `gssic`: Global Seasonal Sentinel-1 Interferometric Coherence and Backscatter Dataset
+2020. See https://asf.alaska.edu/datasets/derived/global-seasonal-sentinel-1-interferometric-coherence-and-backscatter-dataset/
 
 
-**Sentinel datasets**
+**Sentinel 1 GRD**
 
 - `s1grd-yyyy`: Sentinel-1 SAR GRD: C-band Synthetic Aperture Radar Ground Range Detected, three channels (vv, vh, vv/vh) taking the seasonal median (4 on a year) on both ascending and descending modes. See https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD
 
 - `s1grdm-yyyy-asc`: Sentinel 1 SAR GRD: C-band Synthetic Aperture Radar Ground Range Detected, three channels (vv, vh, vv/vh) taking the monthly meedian on ascending passes. See https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD
+
+**Sentinel 2 RGB**
 
 - `s2rgb-yyyy`: Harmonized Sentinel-2 Level 2A, three channels (red, green, blue) seasonal cloudless median (4 on a year). See https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED
 
