@@ -34,8 +34,7 @@ The following datasets are available
 
 **Global Seasonal Sentinel-1 Interferometric Coherence and Backscatter Dataset**
 
-- `gssic`: Global Seasonal Sentinel-1 Interferometric Coherence and Backscatter Dataset
-2020. See https://asf.alaska.edu/datasets/derived/global-seasonal-sentinel-1-interferometric-coherence-and-backscatter-dataset/
+- `gssic`: Global Seasonal Sentinel-1 Interferometric Coherence and Backscatter Dataset 2020. See https://asf.alaska.edu/datasets/derived/global-seasonal-sentinel-1-interferometric-coherence-and-backscatter-dataset/
 
 
 **Sentinel 1 GRD**
