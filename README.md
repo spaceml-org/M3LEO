@@ -1,10 +1,10 @@
-# generalisableSAR
+# Earth Observation Datasets
 
-This repo contains information about multimodal multilabel wide area datasets, collated during the [2022 ESA-funded Frontier Development Lab](https://fdleurope.org/fdl-europe-2023) project focussed on developing generalizable machine learning models for Synthetic Aperture Radar (SAR) data. 
+This repository contains information about the multimodal, multilabel, wide area datasets collated during the [2022 ESA-funded Frontier Development Lab](https://fdleurope.org/fdl-europe-2023) project. While the primary aim of the project was to develop generalizable machine learning models for Synthetic Aperture Radar (SAR) data, the resulting datasets can be used for any machine learning application requiring matching tiles of Earth Observation (EO) data and associated labels.
 
-Datasets are available at this GCP bucket: `fdl2023-sar-datasets`
+More specifically, the datasets contain co-aligned, tiled chips of EO data. Each chip covers an area of 4480m x 4480m (448x448 pixels at 10m/pixel).
 
-Each datasets contains co-aligned, tiled chips of Earth Observation data. Each chip covers an area 4480m x 4480m (448x448 pixels at 10/pixel)
+The datasets can be accessed via the Google Cloud Platform: INSERT-LINK-ONCE-READY
 
 ![samples](imgs/samples.png)
 
