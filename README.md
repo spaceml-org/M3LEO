@@ -4,7 +4,7 @@ This repository contains information about the multimodal, multilabel, wide area
 
 ![samples](imgs/samples.png)
 
-## Area Of Interest
+## Areas Of Interest
 
 The areas of interest (AOIs) covered by our datasets make up approximately 10% of Earth's landmass. 
 
