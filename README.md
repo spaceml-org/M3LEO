@@ -1,6 +1,6 @@
 # Earth Observation Datasets
 
-This repository contains information about the multimodal, multilabel, wide area datasets collated during the [2023 ESA-funded Frontier Development Lab](https://fdleurope.org/fdl-europe-2023) project. While the primary aim of the project was to develop generalizable machine learning models for Synthetic Aperture Radar (SAR) data, the resulting datasets can be used for any machine learning application requiring matching tiles of Earth Observation (EO) data and associated labels. For each dataset, we provide co-aligned, tiled chips covering an area of 4480m x 4480m (448x448 pixels at 10m/pixel) each. 
+This repository contains information about the multimodal, multilabel, wide area datasets collated during the [2023 ESA-funded Frontier Development Lab](https://fdleurope.org/fdl-europe-2023) project. While the primary aim of the project was to develop generalizable machine learning models for Synthetic Aperture Radar (SAR) data, the resulting datasets can be used for any machine learning application requiring matching tiles of Earth Observation (EO) data and associated labels. For each dataset, we provide co-aligned, tiled chips covering an area of 4480m x 4480m (448x448 pixels at 10m/pixel) each. The following image shows an overview of the available datasets. 
 
 ![samples](imgs/samples.png)
 
