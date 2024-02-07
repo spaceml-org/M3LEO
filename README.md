@@ -16,7 +16,7 @@ Each AOI has a `.geojson` file associated with the geometries and ids of every i
 
 ## Datasets
 
-The following datasets are available:
+Our compiled datasets cover >60TB and >500,000 tiles. The table below details the exact size and number of tiles for each available dataset.
 
 ![datasets](imgs/datasets.png)
 
