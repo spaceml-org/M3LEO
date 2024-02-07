@@ -49,7 +49,6 @@ The following datasets are available:
 - `strmdem`: NASA SRTM DEM 30m resolution, from https://developers.google.com/earth-engine/datasets/catalog/CGIAR_SRTM90_V4
 
 **Labelled datasets**
-We provided matching co-aligned tiles of the following higher level data products:
 
 - `biomass-yyyy`: ESA CCI Above Ground Biomass for year yyyy. See https://climate.esa.int/en/projects/biomass/
 
