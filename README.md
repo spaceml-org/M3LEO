@@ -16,7 +16,7 @@ Each AOI has a `.geojson` file associated with the geometries and ids of every i
 
 ## Datasets
 
-Our compiled datasets cover >60TB and >25M tiles derived from 13 data sources. In certain cases, we provide multiple version, for instance covering seasonal or monthly composites. The table below details the exact size and number of tiles for each available dataset.
+Our compiled datasets cover >60TB and >25M tiles derived from 13 data sources. For certain data sources, we provide multiple versions of the compiled datasets, e.g. containing seasonal or monthly composites. The table below details the exact size and number of tiles for each available dataset.
 
 ![datasets](imgs/datasets.png)
 
