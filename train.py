@@ -28,7 +28,6 @@ dotenv.load_dotenv(override=True)
 
 @hydra.main(
     version_base="1.1",
-    # config_path="configs/example-configs",
     config_path="configs/example-config",
     config_name="train.yaml",
 )

@@ -22,5 +22,3 @@ log_data_sum: False # Log data sum to terminal and wandb. Note, too slow for lar
 
 dataset_path: /mnt/disks/sardata
 project_path: /home/matt/work/2023-Europe-SAR
-
-#gs://fdl2023-sar-datasets/southamerica/southamerica_partitions_aschips_3219aa0f411c2_splits_60bands_angle02_60-20-20.csv
