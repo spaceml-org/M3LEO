@@ -1,0 +1,4 @@
+wandb:
+  project: experiments # Add wandb project name
+  entity: organization # Add wandb organization 
+  mode: online # Decide if online logging

@@ -1,0 +1,33 @@
+dataloader:
+  _target_: fdlsar.datamodules.mergedmulti_datamodule.MergedMultiDataModule
+
+  datasets_spec: # Combine two of more datasets
+    dataset-1:
+      class: fdlsar.datamodules.components.dataset-1.Dataset # TODO: Add path to dataset
+      kwargs:
+        year: 2020
+
+    dataset-2:
+      class: fdlsar.datamodules.components.dataset-2.Dataset # TODO: Add path to dataset
+      kwargs:
+        year: 2020
+
+  transforms:
+    dataset-1: # TODO (Optional): Add transforms (and arguments) if needed
+       _target_: fdlsar.datamodules.transforms.DatasetTransform
+
+  split_files: # Define data splits files
+    - ${dataset_path}/china/china_partitions_aschips_23489d30a312b_splits_60bands_angle15_60-20-20.csv
+    - ${dataset_path}/conus/conus_partitions_aschips_293d95e3ee589_splits_60bands_angle09_60-20-20.csv
+    - ${dataset_path}/middleeast/middleeast_partitions_aschips_0a596e5469add_splits_60bands_angle15_60-20-20.csv
+    - ${dataset_path}/pakin/pakin_partitions_aschips_0f26dc7030c75_splits_60bands_angle15_60-20-20.csv
+    - ${dataset_path}/southamerica/southamerica_partitions_aschips_3219aa0f411c2_splits_60bands_angle02_60-20-20.csv
+
+  limit_pct_train: 1.0 # Limits the amount of training data. Selection constant across epochs.
+  limit_pct_val: 1.0 # Limits the amount of validation data. Selection constant across epochs.
+  limit_pct_test: 1.0 # Limits the amount of test data. Selection constant.
+  
+  num_workers: 2
+  batch_size: 8
+  prefetch_factor: 1
+  pin_memory: True

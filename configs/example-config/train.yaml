@@ -1,0 +1,38 @@
+defaults:
+   - datamodule
+   - model
+   - wandb
+
+# -------- Wandb logging --------
+experiment_name: experiment-1 # Define experiment name
+
+aoi: world # Define area of interest for wandb tagging
+tags: tag-1 tag-2 tag-3 # Define tags for wandb logging
+
+log_cmd_wandb: True # Log command to wand
+log_data_sum: False # Log data sum to terminal and wandb. Note, too slow for large dataset sizes.
+log_config_as: yaml # Log yaml config to wandb
+
+log_every_n_steps: 500
+monitor_metric: val/loss # Decide on metric to log
+
+# -------- Training details  --------
+max_epochs: 60 # Define number of training epochs
+
+model_seed: 42 # Define seed for model instantiation
+data_seed: 42 # Define seed for data selection
+
+precision: 32-true # Define float precision
+accumulate_grad_batches: 1 # Define whether to accumulate gradients before running optimizer
+use_deterministic_algorithms: True # Define whether to use deterministic algorithms
+strategy: training-strategy # Define strategy for trainer
+num_nodes: 1 # Define number of GPU nodes for distributed training
+
+# -------- Data details  --------
+limit_train_batches: 1.0 # Limits the amount of training data. Selection random and changing across epochs.
+limit_val_batches: 1.0 # Limits the amount of validation data. Selection random and changing across epochs.
+limit_test_batches: 1.0 # Limits the amount of test data.
+
+# -------- Data & project paths  --------
+dataset_path: /path/to/data # TODO: Change dataset path
+project_path: /path/to/M3LEO/project # TODO: Change project path
