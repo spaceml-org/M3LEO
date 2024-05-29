@@ -130,7 +130,8 @@ dependencies = [ # Optional
   "timm",
   "albumentations",
   "opencv-python-headless<4.3",
-  "seaborn"
+  "seaborn",
+  "python-dotenv"
   ]
 
 # List additional groups of dependencies here (e.g. development
