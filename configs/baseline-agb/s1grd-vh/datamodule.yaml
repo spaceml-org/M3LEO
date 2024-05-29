@@ -34,8 +34,10 @@ dataloader:
     - ${dataset_path}/pakin/pakin_partitions_aschips_0f26dc7030c75_splits_60bands_angle15_60-20-20.csv
     - ${dataset_path}/southamerica/southamerica_partitions_aschips_3219aa0f411c2_splits_60bands_angle02_60-20-20.csv
 
-  num_workers: 12
+  num_workers: 2
   batch_size: 8
   prefetch_factor: 1
-  limit_pct_train: 1.
+  limit_pct_train: 1.0
+  limit_pct_val: 1.0
+  limit_pct_test: 1.0
   pin_memory: True
