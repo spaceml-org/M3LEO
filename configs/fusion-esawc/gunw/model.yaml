@@ -1,0 +1,9 @@
+model:
+  _target_: fdlsar.models.unet.Unet
+  downconvs:
+     _target_: fdlsar.models.components.unet.UnetDownConvs
+     in_channels: 15
+  upconvs:
+     _target_: fdlsar.models.components.unet.UnetUpConvs
+     n_classes: 11
+  learning_rate: 1e-4

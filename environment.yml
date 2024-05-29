@@ -1,0 +1,6 @@
+name: m3leo-env
+
+dependencies:
+  - python=3.10
+  - h5py
+  - cchardet

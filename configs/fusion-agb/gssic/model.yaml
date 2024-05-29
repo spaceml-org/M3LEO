@@ -1,0 +1,9 @@
+model:
+  _target_: fdlsar.models.unet_reg.Unet_regression
+  downconvs:
+     _target_: fdlsar.models.components.unet.UnetDownConvs
+     in_channels: 16
+  upconvs:
+     _target_: fdlsar.models.components.unet.UnetUpConvs
+     n_classes: 1 #This might need to be handled differently if activation function is added
+  learning_rate: 1e-4

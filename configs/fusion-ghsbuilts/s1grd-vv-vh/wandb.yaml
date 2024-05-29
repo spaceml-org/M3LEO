@@ -1,0 +1,4 @@
+wandb:
+  project: data-paper-baselines
+  entity: fdlsar
+  mode: online

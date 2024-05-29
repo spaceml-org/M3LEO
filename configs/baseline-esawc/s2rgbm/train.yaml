@@ -1,0 +1,26 @@
+defaults:
+   - datamodule
+   - model
+   - wandb
+
+experiment_name: datapaper-baselines
+
+log_every_n_steps: 500
+max_epochs: 60
+limit_train_batches: 1.0
+limit_val_batches: 0.1
+limit_test_batches: 1.0
+
+model_seed: 42
+data_seed: 42
+
+aoi: world_exc_europe
+tags: s2rgbm esawc unet no-pretrain world_exc_europe
+
+log_cmd_wandb: True
+log_data_sum: False # Log data sum to terminal and wandb. Note, too slow for large dataset sizes.
+
+dataset_path: /mnt/disks/sardata
+project_path: /home/matt/work/2023-Europe-SAR
+
+#gs://fdl2023-sar-datasets/southamerica/southamerica_partitions_aschips_3219aa0f411c2_splits_60bands_angle02_60-20-20.csv
