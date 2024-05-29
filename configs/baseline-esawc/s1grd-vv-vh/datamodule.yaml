@@ -3,7 +3,8 @@ dataloader:
 
   datasets_spec:
     s1grd:
-      class: fdlsar.datamodules.components.s1grd_blosc.S1grdDataset
+      class: fdlsar.datamodules.components.s1grd.S1grdDataset
+      # class: fdlsar.datamodules.components.s1grd_blosc.S1grdDataset
       skip_constant_channels: False
       kwargs:
         year: 2020
@@ -15,7 +16,8 @@ dataloader:
         normalize: True
 
     esawc:
-      class: fdlsar.datamodules.components.esawc_blosc.ESAWCDataset
+      class: fdlsar.datamodules.components.esawc.ESAWCDataset
+      # class: fdlsar.datamodules.components.esawc_blosc.ESAWCDataset
       kwargs:
         year: 2020
       skip_constant_channels: False

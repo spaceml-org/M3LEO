@@ -3,7 +3,8 @@ dataloader:
 
   datasets_spec:
     gssic:
-      class: fdlsar.datamodules.components.gssic_blosc.GSSICDataset
+      class: fdlsar.datamodules.components.gssic.GSSICDataset
+      # class: fdlsar.datamodules.components.gssic_blosc.GSSICDataset
       kwargs:
         variable:    ['coherence']
         season:      ['winter', 'spring', 'summer', 'fall']
@@ -13,7 +14,8 @@ dataloader:
       skip_constant_channels: True
 
     ghsbuilts:
-      class: fdlsar.datamodules.components.ghsbuilts_blosc.GHSBuiltSDataset
+      class: fdlsar.datamodules.components.ghsbuilts.GHSBuiltSDataset
+      # class: fdlsar.datamodules.components.ghsbuilts_blosc.GHSBuiltSDataset
       skip_constant_channels: False
       kwargs:
         year: 2020

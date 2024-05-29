@@ -3,7 +3,7 @@ dataloader:
 
   datasets_spec:
     gunw_short:
-      class:  fdlsar.datamodules.components.gunw.GUNWDataset
+      class:  fdlsar.datamodules.components.gunw_blosc.GUNWDataset
       skip_constant_channels: False
       kwargs:
         year:  2020
@@ -14,7 +14,7 @@ dataloader:
         selection_rule: 'far'
 
     gunw_medium:
-      class:  fdlsar.datamodules.components.gunw.GUNWDataset
+      class:  fdlsar.datamodules.components.gunw_blosc.GUNWDataset
       skip_constant_channels: False
       kwargs:
         year:  2020
