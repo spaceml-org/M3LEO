@@ -68,6 +68,20 @@ class FillNanByKey:
         sample[self.key] = item
         return sample
 
+class FillNan:
+    """Fill NaN values with a given value.
+
+    Args:
+        value (float): Value to fill NaNs with.
+
+    """
+
+    def __init__(self, value):
+        self.value = value
+
+    def __call__(self, sample):
+        sample[torch.isnan(sample)] = self.value
+        return sample
 
 class ResizeAntialias:
     """Resizes to a given size.
@@ -387,6 +401,7 @@ class LandCoverResize:
 
 
 # ------- Experiment specific transforms -------
+
 class LandCoverTransform:
     """Transform pipeline for any Land Cover data."""
 
@@ -416,15 +431,15 @@ class GhsBuiltSTransform:
     Note, this only preserves the mean/sum if preserve=='mean'/'sum'.
     """
 
-    def __init__(self, size=(50, 66), key="ghsbuilts", preserve=None):
+    def __init__(self, size=(50, 66), preserve=None):
         self.preserve = preserve
         if type(size) == str:
             size = ast.literal_eval(size)
         self.transform = Compose(
             [
                 ToTensor(dtype=torch.float32),
-                FillNanByKey(0.0, key=key),
-                ResizeByKey(size, key),
+                FillNan(0.0),
+                ResizeAntialias(size=size),
             ]
         )
 
@@ -436,51 +451,18 @@ class GhsBuiltSTransform:
             s = ScaleSum()(array=s, original_sum=np.nansum(sample, axis=(-1, -2)))
         return s
 
-
-class GHSBuiltSMean:
-    """
-    Just computes the mean of all channels
-    """
-
-    def __init__(self, key="ghsbuilts"):
-        self.transform = Compose(
-            [
-                ToTensor(dtype=torch.float32),
-                FillNanByKey(0.0, key=key),
-            ]
-        )
-
-    def __call__(self, sample):
-        s = self.transform(sample)
-        return torch.mean(s)
-
-
-class GHSBuiltSLogMean:
-    """
-    Compute the log mean and clip it to zero
-    """
-
-    def __call__(self, sample):
-        r = np.log(sample.mean() + 1e-5)
-        if np.isnan(r):
-            r = np.log(1e-5)
-        if r < 0:
-            r = 0
-        return r
-
-
 class BiomassTransform:
     """Transform pipeline for biomass."""
 
-    def __init__(self, size=(45, 65), key="agb", preserve=None):
+    def __init__(self, size=(45, 65), preserve=None):
         self.preserve = preserve
         if type(size) == str:
             size = ast.literal_eval(size)
         self.transform = Compose(
             [
                 ToTensor(dtype=torch.float32),
-                FillNanByKey(0.0, key=key),
-                ResizeByKey(size, key),
+                FillNan(0.0),
+                ResizeAntialias(size=size),
             ]
         )
 
@@ -502,7 +484,7 @@ class S2rgbmTransform:
         self.transform = Compose(
             [
                 ToTensor(dtype=torch.float32),
-                FillNanByKey(0.0, key=key),
+                FillNan(0.0),
             ]
         )
 
@@ -514,14 +496,14 @@ class S2rgbmTransform:
 class GSSICTransform:
     """Transform pipeline for GSSIC coherence only."""
 
-    def __init__(self, size=(448, 448), key="gssic"):
+    def __init__(self, size=(448, 448)):
         if type(size) == str:
             size = ast.literal_eval(size)
         self.transform = Compose(
             [
-                ItemToTensor(keys=[key], dtype=torch.float32),
-                FillNanByKey(0.0, key=key),
-                ResizeByKey(size, key),
+                ToTensor(dtype=torch.float32),
+                FillNan(0.0),
+                ResizeAntialias(size=size),
             ]
         )
 
@@ -532,14 +514,14 @@ class GSSICTransform:
 class GUNWTransform:
     """Transform pipeline for GUNW data."""
 
-    def __init__(self, size=(448, 448), key="gunw"):
+    def __init__(self, size=(448, 448), preserve=None):
         if type(size) == str:
             size = ast.literal_eval(size)
         self.transform = Compose(
             [
                 ToTensor(dtype=torch.float32),
-                FillNanByKey(0.0, key=key),
-                ResizeByKey(size, key),
+                FillNan(0.0),
+                ResizeAntialias(size=size),
             ]
         )
 

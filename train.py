@@ -28,7 +28,8 @@ dotenv.load_dotenv(override=True)
 
 @hydra.main(
     version_base="1.1",
-    config_path="configs/example-configs",
+    # config_path="configs/example-configs",
+    config_path="configs/example-config",
     config_name="train.yaml",
 )
 def main(config: DictConfig):
@@ -139,98 +140,7 @@ def main(config: DictConfig):
         val_checkpoint_callback,
     ]
 
-    # # ------- training details -------
-    #     callbacks = [
-    #         val_checkpoint_callback,
-    #         linear_probe_callback,
-    #         # epoch_checkpoint_callback,
-    #     ]
-    # else:
-    #     callbacks = [
-    #         val_checkpoint_callback,
-    #         # epoch_checkpoint_callback,
-    #     ]
-
-    # ft_scheduler__create_initial_file = (
-    #     config.ft_scheduler__create_initial_file
-    #     if "ft_scheduler__create_initial_file" in config
-    #     else False
-    # )
-    # if config.get("ft_scheduler"):
-    #     if not ft_scheduler__create_initial_file:
-    #         logger.info(f"---- using ft_scheduler")
-    #         ft_scheduler = FinetuningScheduler(**dict(config.ft_scheduler))
-    #         callbacks.append(ft_scheduler)
-    #     else:
-    #         logger.warning(
-    #             f"---- training with ft_scheduler ---****however*** the finetuner is not defined."
-    #         )
-    #         ft_scheduler = FinetuningScheduler()
-    #         callbacks.append(ft_scheduler)
-    # else:
-    #     logger.info(f"---- not using ft_scheduler")
-
-    # if config.get("log_data_sum"):
-    #     callbacks.append(LogDataSum(input=input))
-
-    # if config.get("plot_esawc"):
-    #     callbacks.append(LogImagePredictions())
-
-    # profiler = PyTorchProfiler(
-    #     on_trace_ready=torch.profiler.tensorboard_trace_handler("tb_logs/profiler0"),
-    #     schedule=torch.profiler.schedule(
-    #         skip_first=10, wait=5, warmup=1, active=5, repeat=2
-    #     ),
-    #     record_shapes=True,
-    #     profile_memory=True,
-    #     with_stack=True,
-    #     activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
-    # )
-
-    # # train with configured model and dataloader
-    # dataloader = hydra.utils.instantiate(config.dataloader)
-
-    # precision = config.get("precision") if config.get("precision") else "32-true"
-    # print("ACC", config.get("accumulate_grad_batches"))
-    # accumulate_grad_batches = (
-    #     config.get("accumulate_grad_batches")
-    #     if config.get("accumulate_grad_batches")
-    #     else 1
-    # )
-
-    # # this is necessary to train using antialiasing torch algorithms
-    # # warn_only is used to log the error but not stop the train
-
-    # if config.get("use_deterministic_algorithms"):
-    #     torch.use_deterministic_algorithms(True, warn_only=True)
-
-    # # Define the limit of test_batches
-    # limit_test_batches = (
-    #     1.0 if not hasattr(config, "limit_test_batches") else config.limit_test_batches
-    # )
-
-    # devices = config.devices if hasattr(config, "devices") else "auto"
-    # check_val_every_n_epoch = (
-    #     config.check_val_every_n_epoch
-    #     if hasattr(config, "check_val_every_n_epoch")
-    #     else 1
-    # )
-
-    # if config.get("strategy"):
-    #     strategy = config.strategy
-    # else:
-    #     timeout = datetime.timedelta(minutes=60)
-    #     strategy = DDPStrategy(
-    #         find_unused_parameters=True,
-    #         static_graph=True,
-    #         timeout=timeout,
-    #     )
-
-    # # strategy = (
-    # #     config.get("strategy")
-    # #     if config.get("strategy")
-    # #     else "ddp_find_unused_parameters_true"
-    # # )
+    # ------- training details -------
 
     # Define plugins for trainer
     plugins = None
@@ -301,11 +211,9 @@ def main(config: DictConfig):
 
     # ------- testing -------
     logger.info(f"---- getting best model from {os.getcwd()}")
-    wandb.log({"best_model_dir": os.getcwd()})
-    # utils.load_ckpt_from_hydra_run(os.getcwd())
+    best_model = utils.load_ckpt_from_hydra_run(os.getcwd())
 
-    # trainer.test(model=best_model, datamodule=dataloader)
-
+    trainer.test(model=best_model, datamodule=dataloader)
 
 if __name__ == "__main__":
     main()
