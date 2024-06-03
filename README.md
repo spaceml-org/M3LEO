@@ -46,3 +46,12 @@ Data will be stored in `.cache` inside the folder from where you run the script.
 ```bash
 CACHE_DIR=/path/to/cache/dir
 ```
+
+## Running train.py
+Our training script is fully hydra integrated. To run experiments, set up configuration files following the example provided under <configs/example-config>.
+
+The training script can then be run using
+
+```bash
+python train.py --config-path /path/to/config
+```
