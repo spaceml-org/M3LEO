@@ -14,6 +14,7 @@ outputs/
 nohup*
 checkpoints/
 hydra_runs/
+notebooks/tmp/
 
 # due to using tox and pytest
 .tox
