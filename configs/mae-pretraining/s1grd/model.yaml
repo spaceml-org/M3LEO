@@ -1,0 +1,5 @@
+model:
+  _target_: fdlsar.models.mae.MaskedAutoEncoder
+  num_channels: 12
+  vit_arch: vit_b_sar_16
+  mask_ratio: 0.75

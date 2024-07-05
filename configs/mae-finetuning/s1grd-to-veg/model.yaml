@@ -1,0 +1,11 @@
+model:
+  _target_: fdlsar.models.mae_regression.MaskedAutoEncoder_Regression
+  num_channels: 12
+  decoder_type: conv
+  backbone:
+      _target_: fdlsar.models.components.checkpoint.ModelFromHydraRun
+      hydra_run_path: ${checkpoint_folder_path}/${checkpoint_name}
+      model_expression: backbone
+      freeze: False
+      # loading_from_state_dict: False
+      enable_loading_weights: True

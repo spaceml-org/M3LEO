@@ -5,7 +5,7 @@ import torch
 from loguru import logger
 from torch import nn
 
-from .components import unet
+from .unet_utils import unet
 
 
 class Unet_regression(pl.LightningModule):

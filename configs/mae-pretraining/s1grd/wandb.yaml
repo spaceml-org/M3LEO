@@ -1,0 +1,4 @@
+wandb:
+  project: mae-pretraining
+  entity: fdlsar
+  mode: online

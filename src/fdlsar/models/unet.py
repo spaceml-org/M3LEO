@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from loguru import logger
 from torchmetrics import JaccardIndex
 
-from .components import unet
+from .unet_utils import unet
 
 
 class Unet(pl.LightningModule):

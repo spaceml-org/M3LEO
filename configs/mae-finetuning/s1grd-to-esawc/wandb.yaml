@@ -1,0 +1,5 @@
+wandb:
+  project: mae-finetuning
+  entity: fdlsar
+  mode: online
+

@@ -1,0 +1,23 @@
+defaults:
+   - datamodule
+   - model
+   - wandb
+
+experiment_name: mae-s1grd-veg
+
+aoi: europe
+tags: s1grd veg mae europe-pretrain europe-finetune
+
+log_every_n_steps: 100
+max_epochs: 100
+limit_train_batches: 1.0
+limit_val_batches: 1.0
+limit_test_batches: 1.0
+
+model_seed: 42
+data_seed: 42
+
+dataset_path: /mnt/disks/sardata
+project_path: /home/anna.jungbluth/M3LEO
+checkpoint_folder_path: /home/anna.jungbluth/mae-models
+checkpoint_name: pretrain_europe_s1grd12ch_vitb16_mr0.75

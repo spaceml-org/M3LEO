@@ -1,0 +1,17 @@
+defaults:
+   - datamodule
+   - model
+   - wandb
+
+experiment_name: mae-s1grd-pretrain-small-vit-small-patch
+
+aoi: europe
+tags: s1grd mae pretrain vit vitt 16
+
+log_every_n_steps: 100
+max_epochs: 75
+limit_train_batches: null
+limit_val_batches: null
+
+dataset_path: /mnt/disks/sardata
+project_path: /home/anna.jungbluth/M3LEO

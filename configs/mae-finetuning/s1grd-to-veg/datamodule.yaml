@@ -1,0 +1,31 @@
+dataloader:
+  _target_: fdlsar.datamodules.mergedmulti_datamodule.MergedMultiDataModule
+
+  datasets_spec:
+    s1grd:
+      class: fdlsar.datamodules.components.s1grd.S1grdDataset
+      skip_constant_channels: True
+      kwargs:
+        year: 2020
+        pols:
+            - vv
+            - vh
+            - vv-vh
+        directions: asc
+        summarize_seasons: False
+        normalize: True
+    labels:
+      class: fdlsar.datamodules.components.modisveg.ModisVegDataset
+      skip_constant_channels: False
+      kwargs:
+        year: 2020
+
+  split_files:
+    - ${dataset_path}/europe/europe_partitions_aschips_2f8bd3f01ddd5_splits_60bands_angle09_60-20-20.csv
+
+  num_workers: 4
+  batch_size: 8
+  limit_pct_train: 1.0
+  limit_pct_val: 1.0
+  limit_pct_test: 1.0 
+  prefetch_factor: 1
