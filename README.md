@@ -1,5 +1,8 @@
 # M3LEO
 
+## Band Info
+See [Issue 1](https://github.com/spaceml-org/M3LEO/issues/1) for information how to retrieve band information for Sentinel 1 and GUNW.
+
 ## Installation
 
 Install Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html) and then run the following commands to create the m3leo-env environment:
