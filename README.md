@@ -1,4 +1,6 @@
 # M3LEO
+## Decompression
+See decompress.py for details on decompressing the parquet datasets to .tif/.nc. You will need to adjust it depending on where you want it to spit out the files. This hasn't been tested extensively - it's lifted more or less directly from the script used to do the compression, where it was used to test that everything was compressed correctly. It has been placed in here in case anybody is stuck on what to do with the parquet files.
 
 ## Band Info
 See [Issue 1](https://github.com/spaceml-org/M3LEO/issues/1) for information how to retrieve band information for Sentinel 1 and GUNW.
